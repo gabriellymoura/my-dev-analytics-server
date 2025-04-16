@@ -18,7 +18,6 @@ const postNewHistoty = async (req, res, next) => {
 
     try {
         await createHistoty(newInput)
-        res.sendStatus(201)
         res.send('Created with success!')
         next()
       } catch(e) {

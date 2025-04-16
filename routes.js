@@ -1,23 +1,23 @@
 const express = require('express')
 
 const historyController = require('./controllers/historyController')
+const skillTimerController = require('./controllers/skillTimerController')
+const techTrackerController = require('./controllers/techTrackerController')
+
 
 const router = express.Router()
 
 router.get('/history', historyController.getHistoty)
-// router.get('/history', (req, res, next) => {
-// 	res.send('hello')
-// })
-
 router.post('/history', historyController.postNewHistoty)
 
-router.post('/', (req, res, next)=>{
-    const description = req.body.description;
-  
-    // Do something with the data
-    console.log(`description: ${description}`);
-  
-    res.send('Data received successfully!');
-})
+router.get('/skills', skillTimerController.getSkills)
+router.post('/skills', skillTimerController.postNewSkill)
+router.put('/skills', skillTimerController.putSkill)
+
+
+router.get('/tech', techTrackerController.getTechTracker)
+router.post('/tech', techTrackerController.postNewTechTracker)
+router.put('/tech', techTrackerController.putTech)
+
 
 module.exports = router
